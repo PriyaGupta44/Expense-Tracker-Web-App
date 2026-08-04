@@ -1,0 +1,141 @@
+# 💰 Expense Tracker
+
+A modern, responsive, and feature-rich **Expense Tracker Web Application** built with **Flask**, **Python**, **SQLite**, **HTML**, **CSS**, and **JavaScript**. It helps users manage their personal finances by tracking income and expenses, analyzing spending habits, and visualizing financial data through an intuitive dashboard.
+
+> 🚧 **Project Status:** Currently under active development.
+
+---
+
+# ✨ Features
+
+### Current Features
+
+* Modern Landing Page
+* Responsive Navigation Bar
+* Professional UI Design
+* Modular Flask Project Structure
+* Application Factory Pattern
+* Blueprint Architecture
+* Configuration Management
+
+### Planned Features
+
+* Secure User Authentication
+* Dashboard Analytics
+* Income & Expense Management
+* Categories & Tags
+* Monthly & Yearly Reports
+* Budget Planning
+* Interactive Charts
+* Search & Filters
+* Dark Mode
+* User Profile & Settings
+* Data Export (CSV/PDF)
+* Mobile Responsive Design
+
+---
+
+# 🛠️ Tech Stack
+
+### Frontend
+
+* HTML5
+* CSS3
+* JavaScript
+
+### Backend
+
+* Python
+* Flask
+
+### Database
+
+* SQLite
+* SQLAlchemy
+
+### Tools
+
+* Git
+* GitHub
+* VS Code
+
+---
+
+# 📂 Project Structure
+
+```text
+expense-tracker/
+│
+├── app/
+│   ├── __init__.py
+│   ├── routes/
+│   ├── models/
+│   ├── templates/
+│   ├── static/
+│   └── utils/
+│
+├── config.py
+├── run.py
+├── requirements.txt
+└── README.md
+```
+
+---
+
+# 📅 Development Progress
+
+## ✅ Day 1
+
+* Project initialization
+* Git & GitHub setup
+* Flask installation
+* Initial project configuration
+
+## ✅ Day 2
+
+* Landing page design
+* Responsive navigation bar
+* Footer section
+* Frontend folder structure
+
+
+---
+
+# 🚀 Roadmap
+
+* [ ] User Authentication
+* [ ] Expense CRUD
+* [ ] Income Management
+* [ ] Categories
+* [ ] Dashboard Analytics
+* [ ] Charts & Reports
+* [ ] Budget Planner
+* [ ] Search & Filtering
+* [ ] Profile Management
+* [ ] Settings
+* [ ] Deployment
+* [ ] Automated Testing
+
+---
+
+# 📸 Screenshots
+
+> Screenshots will be added as the project progresses.
+
+---
+
+# 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+# 👨‍💻 Author
+
+**Priya Kumari Gupta**
+
+Bachelor of Information Technology (BIT)
+
+Tribhuvan University, Nepal
+
+⭐ If you find this project helpful, consider giving it a star on GitHub.
