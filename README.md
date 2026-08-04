@@ -98,6 +98,12 @@ expense-tracker/
 * Footer section
 * Frontend folder structure
 
+## ✅ Day 3
+
+* Flask Application Factory
+* Blueprint Architecture
+* Configuration Management
+* Professional project structure
 
 ---
 
