@@ -105,6 +105,15 @@ expense-tracker/
 * Configuration Management
 * Professional project structure
 
+
+## 📌 Upcoming
+
+- User Authentication
+- Database
+- Dashboard
+- Charts
+- Expense CRUD
+- Deployment
 ---
 
 # 🚀 Roadmap
