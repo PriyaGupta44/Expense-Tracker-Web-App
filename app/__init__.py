@@ -4,6 +4,8 @@ from config import Config
 from app.routes import main
 from app.extensions import db, migrate
 
+from app import models
+
 def create_app():
 
     app = Flask(__name__)
@@ -13,6 +15,8 @@ def create_app():
     migrate.init_app(app, db)
 
     app.register_blueprint(main)
-    
+
+
+
     return app
     
