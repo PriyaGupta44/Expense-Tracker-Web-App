@@ -105,16 +105,14 @@ expense-tracker/
 * Configuration Management
 * Professional project structure
 
+## Day 4 Progress
 
-## 📌 Upcoming
-
-- User Authentication
-- Database
-- Dashboard
-- Charts
-- Expense CRUD
-- Deployment
----
+- Configured SQLite database
+- Integrated SQLAlchemy
+- Added Flask-Migrate
+- Created User model
+- Created Expense model
+- Generated initial database migration
 
 # 🚀 Roadmap
 
