@@ -2,7 +2,7 @@ from flask import Flask
 
 from config import Config
 from app.routes import main
-from app.extensions import db, migrate
+from app.extensions import db, migrate, login_manager
 
 from app import models
 
@@ -16,6 +16,7 @@ def create_app():
 
     app.register_blueprint(main)
 
+    login_manager.init_app(app)
 
 
     return app
