@@ -114,6 +114,28 @@ expense-tracker/
 - Created Expense model
 - Generated initial database migration
 
+### Day 5 — User Registration & Authentication Foundation
+
+Implemented the initial authentication module and secure user registration workflow.
+
+#### Completed
+
+- Added Flask-Login integration
+- Added Flask-WTF form handling
+- Added CSRF protection
+- Created modular authentication Blueprint
+- Implemented registration form validation
+- Added username format validation
+- Added email validation
+- Added duplicate username detection
+- Added duplicate email detection
+- Implemented secure password hashing
+- Added database transaction handling
+- Added rollback handling for registration failures
+- Created responsive registration interface
+- Added reusable flash notifications
+- Improved application factory organization
+
 # 🚀 Roadmap
 
 * [ ] User Authentication
