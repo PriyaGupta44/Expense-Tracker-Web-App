@@ -1,5 +1,5 @@
 from datetime import datetime
-
+from werkzeug.security import check_password_hash, generate_password_hash
 from app.extensions import db
 
 
@@ -15,7 +15,7 @@ class User(db.Model):
     password_hash = db.Column(db.String(255), nullable=False)
 
     created_at = db.Column(
-        db.DateTime,
+        db.DateTime, nullable = False,
         default=datetime.utcnow
     )
 
@@ -28,6 +28,13 @@ class User(db.Model):
 
     def __repr__(self):
         return f"<User {self.username}>"
+
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+
+    def check_password(self, password):
+        return check_password_hash(self.password_hash,password)
 
 
 class Expense(db.Model):
@@ -43,21 +50,11 @@ class Expense(db.Model):
 
     description = db.Column(db.Text)
 
-    expense_date = db.Column(
-        db.Date,
-        nullable=False
-    )
+    expense_date = db.Column(db.Date,nullable=False)
 
-    created_at = db.Column(
-        db.DateTime,
-        default=datetime.utcnow
-    )
+    created_at = db.Column(db.DateTime,default=datetime.utcnow)
 
-    user_id = db.Column(
-        db.Integer,
-        db.ForeignKey("users.id"),
-        nullable=False
-    )
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"),nullable=False)
 
     def __repr__(self):
         return f"<Expense {self.title}>"
