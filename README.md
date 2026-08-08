@@ -105,7 +105,7 @@ expense-tracker/
 * Configuration Management
 * Professional project structure
 
-## Day 4 Progress
+## ✅ Day 4 Progress
 
 - Configured SQLite database
 - Integrated SQLAlchemy
@@ -114,7 +114,7 @@ expense-tracker/
 - Created Expense model
 - Generated initial database migration
 
-### Day 5 — User Registration & Authentication Foundation
+### ✅ Day 5 — User Registration & Authentication Foundation
 
 Implemented the initial authentication module and secure user registration workflow.
 
@@ -136,7 +136,7 @@ Implemented the initial authentication module and secure user registration workf
 - Added reusable flash notifications
 - Improved application factory organization
 
-## Day 6 — Authentication & Session Management
+## ✅ Day 6 — Authentication & Session Management
 
 ### Completed
 
