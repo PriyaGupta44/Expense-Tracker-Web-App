@@ -6,9 +6,7 @@
     <!-- Basic Page Configuration -->
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
     >
 
     <!-- Dynamic Page Title -->
@@ -20,17 +18,10 @@
 
 
     <!-- Main Website CSS -->
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='css/style.css') }}"
-    >
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
     <!-- Authentication Pages CSS -->
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='css/auth.css') }}"
-    >
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
 </head>
 
 
@@ -40,34 +31,63 @@
          Navigation Bar
          ========================================= -->
 
-    <header class="navbar">
+<header class="navbar">
 
-        <div class="container navbar-container">
+    <div class="container navbar-container">
 
-            <a
-                href="{{ url_for('main.home') }}"
-                class="logo"
-            >
-                Expense Tracker
+        <a
+            href="{{ url_for('main.home') }}"
+            class="logo"
+        >
+            Expense Tracker
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="{{ url_for('main.home') }}">
+                Home
             </a>
 
-            <nav class="nav-links">
 
-                <a href="{{ url_for('main.home') }}">
-                    Home
+            {% if current_user.is_authenticated %}
+
+                <a href="{{ url_for('dashboard.index') }}">
+                    Dashboard
+                </a>
+
+                <form
+                    method="POST"
+                    action="{{ url_for('auth.logout') }}"
+                    class="logout-form"
+                >
+
+                    <button
+                        type="submit"
+                        class="nav-button"
+                    >
+                        Logout
+                    </button>
+
+                </form>
+
+            {% else %}
+
+                <a href="{{ url_for('auth.login') }}">
+                    Login
                 </a>
 
                 <a href="{{ url_for('auth.register') }}">
                     Register
                 </a>
 
-            </nav>
+            {% endif %}
 
-        </div>
+        </nav>
 
-    </header>
+    </div>
 
-
+</header>
     <!-- =========================================
          Flash Messages
          ========================================= -->
