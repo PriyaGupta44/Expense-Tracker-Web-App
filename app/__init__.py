@@ -1,6 +1,4 @@
 from flask import Flask
-from app.models import User
-from app import models
 
 from app.extensions import db, login_manager, migrate
 from config import Config
@@ -8,6 +6,7 @@ from config import Config
 
 def create_app():
     app = Flask(__name__)
+
     app.config.from_object(Config)
 
     initialize_extensions(app)
@@ -18,23 +17,12 @@ def create_app():
 
 def initialize_extensions(app):
     db.init_app(app)
-    migrate.init_app(app, db)
+    migrate.init_app(app)
     login_manager.init_app(app)
 
 
 def register_blueprints(app):
-    from app.routes import main
-    from app.auth import auth
 
-    app.register_blueprint(main)
-    app.register_blueprint(auth)
-
-@login_manager.user_loader
-def load_user(user_id):
-    return db.session.get(User, int(user_id))
-
-
-def register_blueprints(app):
     from app.auth import auth
     from app.dashboard import dashboard
     from app.routes import main
@@ -44,3 +32,11 @@ def register_blueprints(app):
     app.register_blueprint(dashboard)
 
     from app import models
+
+
+@login_manager.user_loader
+def load_user(user_id):
+
+    from app.models import User
+
+    return db.session.get(User, int(user_id))
