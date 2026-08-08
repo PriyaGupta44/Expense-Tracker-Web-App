@@ -136,6 +136,25 @@ Implemented the initial authentication module and secure user registration workf
 - Added reusable flash notifications
 - Improved application factory organization
 
+## Day 6 — Authentication & Session Management
+
+### Completed
+
+- Integrated Flask-Login with the User model
+- Added Flask-Login user loader
+- Implemented login form
+- Implemented secure login workflow
+- Added password verification
+- Added Remember Me functionality
+- Implemented logout using POST
+- Added protected dashboard route
+- Added `@login_required`
+- Added authentication-aware navigation
+- Added login/logout feedback messages
+- Tested authentication workflow
+
+
+
 # 🚀 Roadmap
 
 * [ ] User Authentication
