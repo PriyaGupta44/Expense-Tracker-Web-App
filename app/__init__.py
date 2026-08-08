@@ -32,3 +32,15 @@ def register_blueprints(app):
 @login_manager.user_loader
 def load_user(user_id):
     return db.session.get(User, int(user_id))
+
+
+def register_blueprints(app):
+    from app.auth import auth
+    from app.dashboard import dashboard
+    from app.routes import main
+
+    app.register_blueprint(main)
+    app.register_blueprint(auth)
+    app.register_blueprint(dashboard)
+
+    from app import models
