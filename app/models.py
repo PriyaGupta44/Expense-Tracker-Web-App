@@ -43,21 +43,54 @@ class User(UserMixin, db.Model):
 class Expense(db.Model):
     __tablename__ = "expenses"
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(
+        db.Integer,
+        primary_key=True
+    )
 
-    title = db.Column(db.String(100), nullable=False)
+    title = db.Column(
+        db.String(150),
+        nullable=False
+    )
 
-    amount = db.Column(db.Float, nullable=False)
+    description = db.Column(
+        db.Text,
+        nullable=True
+    )
 
-    category = db.Column(db.String(50), nullable=False)
+    amount = db.Column(
+        db.Numeric(10, 2),
+        nullable=False
+    )
 
-    description = db.Column(db.Text)
+    category = db.Column(
+        db.String(50),
+        nullable=False
+    )
 
-    expense_date = db.Column(db.Date,nullable=False)
+    expense_date = db.Column(
+        db.Date,
+        nullable=False
+    )
 
-    created_at = db.Column(db.DateTime,default=datetime.utcnow)
+    created_at = db.Column(
+        db.DateTime,
+        nullable=False,
+        default=datetime.utcnow
+    )
 
-    user_id = db.Column(db.Integer,db.ForeignKey("users.id"),nullable=False)
+    user_id = db.Column(
+        db.Integer,
+        db.ForeignKey(
+            "users.id",
+            ondelete="CASCADE"
+        ),
+        nullable=False,
+        index=True
+    )
 
     def __repr__(self):
-        return f"<Expense {self.title}>"
+        return (
+            f"<Expense {self.title} "
+            f"- {self.amount}>"
+        )
