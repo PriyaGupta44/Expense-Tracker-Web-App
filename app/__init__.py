@@ -1,4 +1,6 @@
 from flask import Flask
+from app.models import User
+from app import models
 
 from app.extensions import db, login_manager, migrate
 from config import Config
@@ -27,5 +29,6 @@ def register_blueprints(app):
     app.register_blueprint(main)
     app.register_blueprint(auth)
 
-    # Ensure models are imported for SQLAlchemy/migrations.
-    from app import models
+@login_manager.user_loader
+def load_user(user_id):
+    return db.session.get(User, int(user_id))
