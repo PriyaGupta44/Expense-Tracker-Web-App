@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Login | Expense Tracker
+{% endblock %}
+
+{% block content %}
+
+<main class="auth-page">
+
+    <section class="auth-card">
+
+        <div class="auth-header">
+
+            <h1>Welcome Back</h1>
+
+            <p>
+                Login to manage your expenses.
+            </p>
+
+        </div>
+
+
+        <form method="POST" novalidate>
+
+            {{ form.hidden_tag() }}
+
+
+            <!-- Email -->
+
+            <div class="form-group">
+
+                {{ form.email.label }}
+
+                {{ form.email(
+                    class="form-control",
+                    placeholder="you@example.com",
+                    autocomplete="email"
+                ) }}
+
+                {% for error in form.email.errors %}
+
+                    <span class="form-error">
+                        {{ error }}
+                    </span>
+
+                {% endfor %}
+
+            </div>
+
+
+            <!-- Password -->
+
+            <div class="form-group">
+
+                {{ form.password.label }}
+
+                {{ form.password(
+                    class="form-control",
+                    placeholder="Enter your password",
+                    autocomplete="current-password"
+                ) }}
+
+                {% for error in form.password.errors %}
+
+                    <span class="form-error">
+                        {{ error }}
+                    </span>
+
+                {% endfor %}
+
+            </div>
+
+
+            <!-- Remember Me -->
+
+            <div class="remember-group">
+
+                {{ form.remember() }}
+
+                {{ form.remember.label }}
+
+            </div>
+
+
+            <!-- Submit -->
+
+            {{ form.submit(
+                class="btn auth-submit"
+            ) }}
+
+        </form>
+
+
+        <p class="auth-footer">
+
+            Don't have an account?
+
+            <a href="{{ url_for('auth.register') }}">
+                Create an account
+            </a>
+
+        </p>
+
+    </section>
+
+</main>
+
+{% endblock %}
