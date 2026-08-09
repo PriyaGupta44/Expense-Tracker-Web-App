@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    My Expenses | Expense Tracker
+{% endblock %}
+
+
+{% block content %}
+
+<main class="expense-page">
+
+    <div class="container">
+
+        <div class="expense-header">
+
+            <div>
+
+                <h1>My Expenses</h1>
+
+                <p>
+                    Track and manage your spending.
+                </p>
+
+            </div>
+
+
+            <a
+                href="{{ url_for('expenses.add_expense') }}"
+                class="btn"
+            >
+                + Add Expense
+            </a>
+
+        </div>
+
+
+        {% if expenses %}
+
+            <div class="expense-list">
+
+                {% for expense in expenses %}
+
+                    <article class="expense-item">
+
+                        <div>
+
+                            <h2>
+                                {{ expense.title }}
+                            </h2>
+
+                            {% if expense.description %}
+
+                                <p>
+                                    {{ expense.description }}
+                                </p>
+
+                            {% endif %}
+
+                            <small>
+                                {{ expense.category|title }}
+                                ·
+                                {{ expense.expense_date }}
+                            </small>
+
+                        </div>
+
+
+                        <strong>
+                            {{ "%.2f"|format(expense.amount) }}
+                        </strong>
+
+                    </article>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <div class="empty-state">
+
+                <h2>
+                    No expenses yet
+                </h2>
+
+                <p>
+                    Start tracking your spending
+                    by adding your first expense.
+                </p>
+
+                <a
+                    href="{{ url_for('expenses.add_expense') }}"
+                    class="btn"
+                >
+                    Add Your First Expense
+                </a>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</main>
+
+{% endblock %}
