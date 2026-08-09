@@ -12,16 +12,17 @@
     <!-- Dynamic Page Title -->
     <title>
         {% block title %}
-            Expense Tracker
+            Monexa
         {% endblock %}
     </title>
 
 
     <!-- Main Website CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
-    <!-- Authentication Pages CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
 </head>
 
 
@@ -39,7 +40,7 @@
             href="{{ url_for('main.home') }}"
             class="logo"
         >
-            Expense Tracker
+            Monexa
         </a>
 
 
