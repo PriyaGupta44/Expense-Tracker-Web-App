@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 
+
 {% block title %}
     Dashboard | Expense Tracker
 {% endblock %}
+
 
 {% block content %}
 
@@ -11,12 +13,31 @@
     <div class="container">
 
         <h1>
-            Welcome to your Dashboard
+            Welcome, {{ current_user.username }}!
         </h1>
 
         <p>
-            You are successfully logged in.
+            Manage your personal finances from here.
         </p>
+
+
+        <div class="dashboard-actions">
+
+            <a
+                href="{{ url_for('expenses.add_expense') }}"
+                class="btn"
+            >
+                + Add Expense
+            </a>
+
+            <a
+                href="{{ url_for('expenses.list_expenses') }}"
+                class="btn"
+            >
+                View Expenses
+            </a>
+
+        </div>
 
     </div>
 
