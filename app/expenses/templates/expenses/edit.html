@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    Edit Expense | Expense Tracker
+{% endblock %}
+
+
+{% block content %}
+
+<main class="expense-page">
+
+    <div class="container">
+
+        <section class="expense-card">
+
+            <div class="expense-header">
+
+                <h1>Edit Expense</h1>
+
+                <p>
+                    Update your expense details.
+                </p>
+
+            </div>
+
+
+            <form method="POST" novalidate>
+
+                {{ form.hidden_tag() }}
+
+
+                <!-- Title -->
+
+                <div class="form-group">
+
+                    {{ form.title.label }}
+
+                    {{ form.title(
+                        class="form-control",
+                        placeholder="e.g. Lunch"
+                    ) }}
+
+                    {% for error in form.title.errors %}
+
+                        <span class="form-error">
+                            {{ error }}
+                        </span>
+
+                    {% endfor %}
+
+                </div>
+
+
+                <!-- Description -->
+
+                <div class="form-group">
+
+                    {{ form.description.label }}
+
+                    {{ form.description(
+                        class="form-control",
+                        placeholder="Optional description",
+                        rows="4"
+                    ) }}
+
+                    {% for error in form.description.errors %}
+
+                        <span class="form-error">
+                            {{ error }}
+                        </span>
+
+                    {% endfor %}
+
+                </div>
+
+
+                <!-- Amount -->
+
+                <div class="form-group">
+
+                    {{ form.amount.label }}
+
+                    {{ form.amount(
+                        class="form-control",
+                        placeholder="0.00",
+                        step="0.01"
+                    ) }}
+
+                    {% for error in form.amount.errors %}
+
+                        <span class="form-error">
+                            {{ error }}
+                        </span>
+
+                    {% endfor %}
+
+                </div>
+
+
+                <!-- Category -->
+
+                <div class="form-group">
+
+                    {{ form.category.label }}
+
+                    {{ form.category(
+                        class="form-control"
+                    ) }}
+
+                    {% for error in form.category.errors %}
+
+                        <span class="form-error">
+                            {{ error }}
+                        </span>
+
+                    {% endfor %}
+
+                </div>
+
+
+                <!-- Date -->
+
+                <div class="form-group">
+
+                    {{ form.expense_date.label }}
+
+                    {{ form.expense_date(
+                        class="form-control"
+                    ) }}
+
+                    {% for error in form.expense_date.errors %}
+
+                        <span class="form-error">
+                            {{ error }}
+                        </span>
+
+                    {% endfor %}
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    {{ form.submit(
+                        value="Update Expense",
+                        class="btn auth-submit"
+                    ) }}
+
+                    <a
+                        href="{{ url_for('expenses.list_expenses') }}"
+                        class="btn btn-secondary"
+                    >
+                        Cancel
+                    </a>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </div>
+
+</main>
+
+{% endblock %}
