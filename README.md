@@ -154,6 +154,23 @@ Implemented the initial authentication module and secure user registration workf
 - Tested authentication workflow
 
 
+## Day 7 — Expense Management Foundation
+
+### Completed
+
+- Designed Expense database model
+- Added User → Expense relationship
+- Added expense database migration
+- Created ExpenseForm
+- Added server-side validation
+- Created Expense blueprint
+- Implemented secure expense creation
+- Added expense listing
+- Added protected expense routes
+- Added dashboard expense actions
+- Implemented user-specific expense filtering
+- Tested expense ownership isolation
+
 
 # 🚀 Roadmap
 
