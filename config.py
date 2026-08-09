@@ -1,12 +1,16 @@
 import os
 
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
-    SECRET_KEY = os.environ.get("SECRET_KEY") or "dev-secret-key"
 
-    SQLALCHEMY_DATABASE_URI = (
-        "sqlite:///" + os.path.join(BASE_DIR, "instance", "expense.db")
+    SECRET_KEY = os.environ.get(
+        "SECRET_KEY",
+        "dev-secret-key-change-this"
+    )
+
+    SQLALCHEMY_DATABASE_URI = os.environ.get(
+        "DATABASE_URL",
+        "sqlite:///expense_tracker.db"
     )
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False

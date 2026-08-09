@@ -17,7 +17,7 @@ def create_app():
 
 def initialize_extensions(app):
     db.init_app(app)
-    migrate.init_app(app)
+    migrate.init_app(app, db)
     login_manager.init_app(app)
 
 
@@ -25,11 +25,13 @@ def register_blueprints(app):
 
     from app.auth import auth
     from app.dashboard import dashboard
+    from app.expenses import expenses
     from app.routes import main
 
     app.register_blueprint(main)
     app.register_blueprint(auth)
     app.register_blueprint(dashboard)
+    app.register_blueprint(expenses)
 
     from app import models
 
