@@ -66,9 +66,23 @@
                         </div>
 
 
-                        <strong>
-                            {{ "%.2f"|format(expense.amount) }}
-                        </strong>
+                        <div class="expense-actions">
+
+                            <strong>
+                                {{ "%.2f"|format(expense.amount) }}
+                            </strong>
+
+                            <a
+                                href="{{ url_for(
+                                    'expenses.edit_expense',
+                                    expense_id=expense.id
+                                ) }}"
+                                class="btn btn-small"
+                            >
+                                Edit
+                            </a>
+
+                        </div>
 
                     </article>
 
