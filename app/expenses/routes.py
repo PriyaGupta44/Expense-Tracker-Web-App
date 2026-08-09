@@ -121,3 +121,27 @@ def edit_expense(expense_id):
     return render_template(
         "expenses/edit.html", form=form, expense=expense
     )
+
+@expenses.route("/<int:expense_id>/delete", methods=["POST"])
+@login_required
+def delete_expense(expense_id):
+
+    expense =Expense.query.filter_by(
+        id=expense_id, 
+        user_id=current_user.id
+    ).first_or_404
+
+
+    try:  
+
+        db.session.delete(expense)
+        db.session.commit()
+
+    except SQLAlchemyError:
+        db.session.rollback()
+
+        flash("Unable to delete your expense." "Please try again.", "danger")
+        return redirect(url_for("expenses.list_expenses"))
+
+    flash("Expense delete successfully.", "success")
+    return redirect(url_for("expenses.list_expenses"))
