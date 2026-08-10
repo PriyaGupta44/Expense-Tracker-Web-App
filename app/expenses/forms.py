@@ -96,3 +96,13 @@ class ExpenseForm(FlaskForm):
     submit = SubmitField(
         "Add Expense"
     )
+
+
+class DeleteExpenseForm(FlaskForm):
+    submit = SubmitField("Delete")
+
+
+    from app.expenses.forms import (
+        DeleteExpenseForm,
+        ExpenseForm
+    )

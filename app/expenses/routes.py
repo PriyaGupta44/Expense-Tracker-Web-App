@@ -7,6 +7,8 @@ from app.expenses.forms import ExpenseForm
 from app.extensions import db
 from app.models import Expense
 
+from app.expenses.forms import(DeleteExpenseForm, ExpenseForm)
+
 
 @expenses.route("/add", methods=["GET", "POST"])
 @login_required
@@ -76,9 +78,12 @@ def list_expenses():
         .all()
     )
 
+    delete_form = DeleteExpenseForm()
+
     return render_template(
         "expenses/list.html",
-        expenses=expenses_list
+        expenses=expenses_list, 
+        delete_form=delete_form
     )
 
 @expenses.route("/<int:expense_id>/edit", methods=["GET", "POST"])
@@ -126,22 +131,48 @@ def edit_expense(expense_id):
 @login_required
 def delete_expense(expense_id):
 
-    expense =Expense.query.filter_by(
-        id=expense_id, 
+    expense = Expense.query.filter_by(
+        id=expense_id,
         user_id=current_user.id
-    ).first_or_404
+    ).first_or_404()
 
+    form = DeleteExpenseForm()
 
-    try:  
+    if not form.validate_on_submit():
+
+        flash(
+            "Invalid delete request.",
+            "danger"
+        )
+
+        return redirect(
+            url_for("expenses.list_expenses")
+        )
+
+    try:
 
         db.session.delete(expense)
         db.session.commit()
 
     except SQLAlchemyError:
+
         db.session.rollback()
 
-        flash("Unable to delete your expense." "Please try again.", "danger")
-        return redirect(url_for("expenses.list_expenses"))
+        flash(
+            "Unable to delete your expense. "
+            "Please try again.",
+            "danger"
+        )
 
-    flash("Expense delete successfully.", "success")
-    return redirect(url_for("expenses.list_expenses"))
+        return redirect(
+            url_for("expenses.list_expenses")
+        )
+
+    flash(
+        "Expense deleted successfully.",
+        "success"
+    )
+
+    return redirect(
+        url_for("expenses.list_expenses")
+    )
