@@ -92,7 +92,7 @@ def edit_expense(expense_id):
 
     expense = Expense.query.filter_by(
         id = expense_id,
-        user_is = current_user.id
+        user_id = current_user.id
     ).first_or_404()
 
     form = ExpenseForm(obj=expense)
@@ -120,8 +120,8 @@ def edit_expense(expense_id):
 
             return render_template("expenses/edit.html", form=form, expense=expense)
 
-        flash("Expence updated successfully","success")
-        return redirect(url_for("expenses.list_expences"))
+        flash("Expense updated successfully","success")
+        return redirect(url_for("expenses.list_expenses"))
 
     return render_template(
         "expenses/edit.html", form=form, expense=expense

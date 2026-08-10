@@ -29,10 +29,7 @@ class ExpenseForm(FlaskForm):
             Length(
                 min=2,
                 max=150,
-                message=(
-                    "Title must be between "
-                    "2 and 150 characters."
-                )
+                message="Title must be between 2 and 150 characters."
             )
         ]
     )
@@ -42,10 +39,7 @@ class ExpenseForm(FlaskForm):
         validators=[
             Length(
                 max=500,
-                message=(
-                    "Description cannot exceed "
-                    "500 characters."
-                )
+                message="Description cannot exceed 500 characters."
             )
         ]
     )
@@ -93,16 +87,9 @@ class ExpenseForm(FlaskForm):
         default=date.today
     )
 
-    submit = SubmitField(
-        "Add Expense"
-    )
+    submit = SubmitField("Add Expense")
 
 
 class DeleteExpenseForm(FlaskForm):
+
     submit = SubmitField("Delete")
-
-
-    from app.expenses.forms import (
-        DeleteExpenseForm,
-        ExpenseForm
-    )
