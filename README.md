@@ -172,6 +172,31 @@ Implemented the initial authentication module and secure user registration workf
 - Tested expense ownership isolation
 
 
+## Day 8 — Expense CRUD
+
+### Completed
+
+- Added expense editing
+- Added expense deletion
+- Added reusable expense forms
+- Added CSRF protection
+- Added POST-only deletion
+- Added expense ownership authorization
+- Added edit and delete UI actions
+- Tested CRUD functionality
+- Tested cross-user resource protection
+
+### Expense CRUD
+
+| Operation | Endpoint | Method |
+|---|---|---|
+| Create | `/expenses/add` | GET/POST |
+| Read | `/expenses/` | GET |
+| Update | `/expenses/<id>/edit` | GET/POST |
+| Delete | `/expenses/<id>/delete` | POST |
+
+
+
 # 🚀 Roadmap
 
 * [ ] User Authentication
